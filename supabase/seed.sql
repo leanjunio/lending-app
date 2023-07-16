@@ -1,0 +1,26 @@
+-- users table seed
+insert into public.users (id, email, password, user_type) values (1, 'wzuanazzi0@chron.com', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (2, 'mbrunel1@smh.com.au', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (3, 'ttiffany2@smugmug.com', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (4, 'gbains3@mapy.cz', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (5, 'gdelve4@360.cn', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (6, 'cwhewill5@google.co.jp', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (7, 'achallenor6@java.com', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (8, 'wskryne7@mit.edu', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (9, 'adunsmuir8@php.net', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (10, 'cmanns9@hao123.com', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (11, 'bmckeurtona@freewebs.com', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (12, 'dmccrohonb@kickstarter.com', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (13, 'icostanzac@hubpages.com', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (14, 'afennerd@netvibes.com', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (15, 'sdannohle@51.la', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (16, 'pduhigf@linkedin.com', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (17, 'mmarteng@devhub.com', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (18, 'sleismanh@shinystat.com', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (19, 'tmagoverni@cdc.gov', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (20, 'jwimmersj@prlog.org', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (21, 'hgotthardsfk@amazon.co.jp', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (22, 'wblundonl@cargocollective.com', 'password', 'lender');
+insert into public.users (id, email, password, user_type) values (23, 'hbroughamm@jalbum.net', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (24, 'waddymann@photobucket.com', 'password', 'borrower');
+insert into public.users (id, email, password, user_type) values (25, 'lrowlsono@unc.edu', 'password', 'borrower');
