@@ -6,10 +6,19 @@ import { DatabaseModule } from '../database/database.module';
 import { UsersModule } from '../users/users.module';
 import { AuthModule } from '../auth/auth.module';
 import { PrismaService } from './prisma.service';
+import { InstrumentsModule } from '../instruments/instruments.module';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Module({
-  imports: [DatabaseModule, UsersModule, AuthModule],
+  imports: [DatabaseModule, UsersModule, AuthModule, InstrumentsModule],
   controllers: [AppController],
-  providers: [AppService, PrismaService]
+  providers: [
+    AppService,
+    PrismaService,
+    {
+      provide: 'APP_GUARD',
+      useClass: JwtAuthGuard
+    }
+  ]
 })
 export class AppModule {}

@@ -14,7 +14,7 @@ model Instrument {
   description     String?
   instrument_type String?    @db.VarChar(50)
   rate            Decimal?   @db.Decimal(9, 2)
-  availability    String?    @default("Available") @db.VarChar(50)
+  availability    Boolean    @default(true)
   created_at      DateTime?  @default(now()) @db.Timestamp(6)
   updated_at      DateTime?  @default(now()) @db.Timestamp(6)
   owner           User       @relation(fields: [owner_id], references: [id], onDelete: NoAction, onUpdate: NoAction)

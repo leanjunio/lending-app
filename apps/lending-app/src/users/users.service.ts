@@ -12,11 +12,10 @@ export class UsersService {
     return users;
   }
 
-  async findOne(email: string, password: string) {
+  async findOne(email: string) {
     return this.prisma.user.findUniqueOrThrow({
       where: {
-        email,
-        password
+        email
       }
     });
   }
