@@ -5,6 +5,7 @@
 NOTE: You need the Supabase token to use the lending app db locally
 
 1. [Start the Supabase services](https://supabase.com/docs/guides/getting-started/local-development#start-supabase-services)
+2. `npm start`
 
 ## Supabase
 
