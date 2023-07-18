@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Instrument {
+  id              Int        @id @default(autoincrement())
+  owner_id        Int
+  name            String?    @db.VarChar(100)
+  description     String?
+  instrument_type String?    @db.VarChar(50)
+  rate            Decimal?   @db.Decimal(9, 2)
+  availability    String?    @default("Available") @db.VarChar(50)
+  created_at      DateTime?  @default(now()) @db.Timestamp(6)
+  updated_at      DateTime?  @default(now()) @db.Timestamp(6)
+  owner           User       @relation(fields: [owner_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  requests        requests[]
+}
+
+model requests {
+  id            Int        @id @default(autoincrement())
+  borrower_id   Int
+  instrument_id Int
+  status        String?    @default("Pending") @db.VarChar(50)
+  created_at    DateTime?  @default(now()) @db.Timestamp(6)
+  updated_at    DateTime?  @default(now()) @db.Timestamp(6)
+  borrower      User       @relation(fields: [borrower_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  instrument    Instrument @relation(fields: [instrument_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model User {
+  id          Int          @id @default(autoincrement())
+  email       String?      @unique @db.VarChar(255)
+  password    String?      @db.VarChar(255)
+  user_type   String?      @db.VarChar(50)
+  created_at  DateTime?    @default(now()) @db.Timestamp(6)
+  updated_at  DateTime?    @default(now()) @db.Timestamp(6)
+  instruments Instrument[]
+  requests    requests[]
+}

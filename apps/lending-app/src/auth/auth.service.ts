@@ -11,17 +11,15 @@ export class AuthService {
   ) {}
 
   async login(loginDto: LoginDto) {
-    const found = await this.userService.findOne(
+    const user = await this.userService.findOne(
       loginDto.email,
       loginDto.password
     );
 
-    if (found.data.length > 0) {
-      const payload = { id: found.data[0].id, email: found.data[0].email };
+    const payload = { sub: user.id, email: user.email };
 
-      return {
-        access_token: await this.jwtService.signAsync(payload)
-      };
-    }
+    return {
+      access_token: await this.jwtService.signAsync(payload)
+    };
   }
 }

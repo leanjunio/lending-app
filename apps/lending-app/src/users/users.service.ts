@@ -1,18 +1,11 @@
-import {
-  HttpException,
-  HttpStatus,
-  Injectable,
-  NotFoundException
-} from '@nestjs/common';
-import { DatabaseService } from '../database/database.service';
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../app/prisma.service';
 
 @Injectable()
 export class UsersService {
   private dbInstance;
 
-  constructor(private dbService: DatabaseService) {
-    this.dbInstance = dbService.getSupabase();
-  }
+  constructor(private prisma: PrismaService) {}
 
   async findAll() {
     const users = await this.dbInstance.from('users').select();
@@ -20,17 +13,11 @@ export class UsersService {
   }
 
   async findOne(email: string, password: string) {
-    const user = await this.dbInstance
-      .from('users')
-      .select()
-      .eq('email', email)
-      .eq('password', password);
-    console.log({ user });
-
-    if (user.data.length === 0) {
-      throw new HttpException('No Content', HttpStatus.NO_CONTENT);
-    }
-
-    return user;
+    return this.prisma.user.findUniqueOrThrow({
+      where: {
+        email,
+        password
+      }
+    });
   }
 }
