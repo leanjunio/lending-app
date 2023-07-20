@@ -33,6 +33,7 @@ export class InstrumentsController {
   }
 
   @Get()
+  @Roles('lender')
   async getOwnedInstruments(@Req() req) {
     return this.getOwnedInstruments(req.user.userId);
   }

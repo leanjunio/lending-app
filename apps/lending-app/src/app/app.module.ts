@@ -8,9 +8,16 @@ import { AuthModule } from '../auth/auth.module';
 import { PrismaService } from './prisma.service';
 import { InstrumentsModule } from '../instruments/instruments.module';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { RequestsModule } from '../requests/requests.module';
 
 @Module({
-  imports: [DatabaseModule, UsersModule, AuthModule, InstrumentsModule],
+  imports: [
+    DatabaseModule,
+    UsersModule,
+    AuthModule,
+    InstrumentsModule,
+    RequestsModule
+  ],
   controllers: [AppController],
   providers: [
     AppService,
