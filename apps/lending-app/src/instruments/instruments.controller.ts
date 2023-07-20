@@ -15,6 +15,7 @@ import {
   CreateInstrumentDto,
   UpdateInstrumentDto
 } from '@lending-app/data-access';
+import { ResourceExistsPipe } from '../pipes/resource-exists.pipe';
 
 @Controller('instruments')
 export class InstrumentsController {
@@ -45,7 +46,10 @@ export class InstrumentsController {
 
   @Delete(':id')
   @Roles('lender')
-  async deleteInstrument(@Param('id') id: string, @Req() req) {
+  async deleteInstrument(
+    @Param('instrument', ResourceExistsPipe) id,
+    @Req() req
+  ) {
     return this.instrumentsService.deleteInstrument(id, req.user.userId);
   }
 }
