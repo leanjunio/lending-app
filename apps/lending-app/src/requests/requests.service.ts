@@ -35,4 +35,13 @@ export class RequestsService {
       }
     });
   }
+
+  async getRequestedInstruments(borrowerId: string) {
+    return this.prisma.requests.findMany({
+      where: {
+        borrower_id: parseInt(borrowerId),
+        status: 'confirmed'
+      }
+    });
+  }
 }

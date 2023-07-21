@@ -27,6 +27,12 @@ export class RequestsController {
     return this.requestsService.findPendingRequests(req.user.userId, status);
   }
 
+  @Get(':id')
+  @Roles('borrower')
+  async getRequestedInstruments(@Param() id: string) {
+    return this.getRequestedInstruments(id);
+  }
+
   @Put(':id')
   @Roles('lender')
   @UseZodGuard('body', RespondRequestDto)
