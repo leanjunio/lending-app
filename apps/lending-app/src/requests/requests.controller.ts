@@ -39,4 +39,10 @@ export class RequestsController {
   async respondToRequest(@Param('id') id: string, @Body() body) {
     return this.requestsService.respondToRequest(id, body.approve);
   }
+
+  @Put(':id')
+  @Roles('borrower')
+  async confirmRequest(@Param() id: string) {
+    return this.requestsService.confirmRequest(id);
+  }
 }

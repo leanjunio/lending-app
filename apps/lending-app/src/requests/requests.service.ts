@@ -44,4 +44,15 @@ export class RequestsService {
       }
     });
   }
+
+  async confirmRequest(id: string) {
+    return this.prisma.requests.update({
+      where: {
+        id: parseInt(id)
+      },
+      data: {
+        status: 'confirmed'
+      }
+    });
+  }
 }
