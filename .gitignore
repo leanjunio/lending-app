@@ -40,3 +40,6 @@ Thumbs.db
 
 # envars
 .env
+
+# Next.js
+.next
